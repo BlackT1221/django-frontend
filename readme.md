@@ -37,7 +37,7 @@ python -m venv venv
 venv\Scripts\activate
 ```
 
-### 3. Instalar dependencias
+### 3. Configuración de Variables de Entorno
 ```bash
 pip install -r requirements.txt
 ```
@@ -46,7 +46,7 @@ pip install -r requirements.txt
 
 Crea un archivo .env dentro de la carpeta **/config** basándote en el archivo **.env.example** y añade tus credenciales secretas.
 
-### 5. Instalar dependencias
+### 5. Configuración de Firebase
 
 Este proyecto requiere una llave de servicio de Firebase para funcionar:
 
