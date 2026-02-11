@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Aprendices - ADSO</title>
+    <style>
+        body { font-family: sans-serif; margin: 50px; }
+        .form-container { border: 1px solid #ccc; padding: 20px; max-width: 300px; }
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>
+            <form method="POST">
+                {% csrf_token %}
+                <label>Email:</label><br>
+                <input type="email" name="email" placeholder="ejemplo@sena.edu.co" required><br><br>
+                
+                <label>Contraseña:</label><br>
+                <input type="password" name="password" required><br><br>
+                
+                <button type="submit">Crear Cuenta</button>
+            </form>
+        </h2>
+        {% if mensaje %}
+        <p class="{% if '✅' in mensaje %}success{% else %}error{% endif %}">
+            {{ mensaje }}
+        </p>
+        {% endif %}
+    </div>
+    
+</body>
+</html>

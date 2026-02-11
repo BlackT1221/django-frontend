@@ -1,0 +1,19 @@
+# Entorno Virtual
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Base de Datos
+*.sqlite3
+
+# Variables de entorno y credenciales
+.env
+config/serviceAccountKey.json
+*.json
+
+# Estáticos y Media (opcional, dependiendo de tu flujo)
+staticfiles/
+media/
