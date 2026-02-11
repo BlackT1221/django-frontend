@@ -37,12 +37,12 @@ python -m venv venv
 venv\Scripts\activate
 ```
 
-### 3. Configuración de Variables de Entorno
+### 3. Instalar dependencias
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Instalar dependencias
+### 4. Configuración de Variables de Entorno
 
 Crea un archivo .env dentro de la carpeta **/config** basándote en el archivo **.env.example** y añade tus credenciales secretas.
 
