@@ -65,4 +65,4 @@ La aplicación estará disponible en: http://127.0.0.1:8000/.
 
 ### Aclaraciones para la formacion:
 
-Chicos, queda en ustedes si quieren clonar el repo, pero todo lo que esta aqui me lo pueden preguntar en la siguiente sesion sin problema, recuerden que la idea es ir haciendo un proyecto juntos, asi que no se me adelanten. Por ahora, solo deben tenerlo al dia con lo que hicimos en formacion. Happy coding a todos, un abrazo.
+Este sera el ultimo commit
