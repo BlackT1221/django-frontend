@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva Tarea - ADSO</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f4f6f9; margin: 0; display: flex; }
+        .sidebar { width: 250px; background-color: #343a40; color: white; min-height: 100vh; padding: 20px; box-sizing: border-box; }
+        .main-content { flex: 1; padding: 40px; }
+        .card { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); max-width: 500px; }
+        h2 { color: #333; margin-top: 0; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; color: #555; }
+        input, textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-family: inherit; }
+        textarea { height: 100px; resize: vertical; }
+        .btn-submit { background-color: #28a745; color: white; padding: 12px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 1rem; width: 100%; }
+        .btn-submit:hover { background-color: #218838; }
+        .btn-back { display: inline-block; margin-top: 15px; color: #007bff; text-decoration: none; font-size: 0.9rem; }
+        .alert { padding: 10px; border-radius: 5px; margin-bottom: 15px; background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h3>ADSO CRUD</h3>
+        <p>Gestión de Tareas</p>
+        <hr>
+        <a href="{% url 'listar_tareas' %}" style="color: white; text-decoration: none;">📋 Ver Tareas</a>
+    </div>
+
+    <div class="main-content">
+        <div class="card">
+            <h2>Crear Nueva Tarea</h2>
+
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            <form method="POST">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    <label for="titulo">Título de la Tarea técnica</label>
+                    <input type="text" id="titulo" name="titulo" placeholder="Ej: Configurar entorno Linux" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="descripcion">Descripción detallada</label>
+                    <textarea id="descripcion" name="descripcion" placeholder="Describe brevemente la actividad..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Guardar Tarea en Firebase</button>
+            </form>
+
+            <a href="{% url 'listar_tareas' %}" class="btn-back">← Volver al listado</a>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Administrativo</title>
+    <style>
+        body { font-family: sans-serif; margin: 0; display: flex; height: 100vh; }
+        .sidebar { width: 250px; background-color: #343a40; color: white; padding: 20px; display: flex; flex-direction: column; }
+        .main { flex: 1; padding: 40px; background-color: #f4f6f9; }
+        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); max-width: 600px;}
+        .btn-logout { background-color: #dc3545; color: white; text-decoration: none; padding: 10px; border-radius: 5px; text-align: center; margin-top: auto; }
+        h1 { margin-top: 0; }
+        .data-row { border-bottom: 1px solid #eee; padding: 10px 0; display: flex; justify-content: space-between; }
+        .label { font-weight: bold; color: #555; }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h3>ADSO Panel</h3>
+        <p>Bienvenido/a</p>
+        <a href="/logout" class="btn-logout">Cerrar Sesión</a>
+    </div>
+
+    <div class="main">
+        <h1>Perfil del Usuario</h1>
+        
+        <div class="card">
+            <h3>Datos desde Firestore (Nube)</h3>
+            
+            <div class="data-row">
+                <span class="label">Correo:</span>
+                <span>{{ datos.email }}</span>
+            </div>
+            
+            <div class="data-row">
+                <span class="label">UID (Firebase):</span>
+                <span>{{ datos.uid }}</span>
+            </div>
+            
+            <div class="data-row">
+                <span class="label">Rol:</span>
+                <span>{{ datos.rol|default:"Aprendiz" }}</span>
+            </div>
+            
+            <div class="data-row">
+                <span class="label">Estado de Cuenta:</span>
+                <span style="color: green;">Activa ✅</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

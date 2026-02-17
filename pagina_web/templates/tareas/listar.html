@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+{% block content %}
+    <h2>Mis Tareas Técnicas</h2>
+<a href="{% url 'crear_tarea' %}" style="background: green; color: white; padding: 10px; text-decoration: none;">+ Nueva Tarea</a>
+
+<table border="1" style="width: 100%; margin-top: 20px; border-collapse: collapse;">
+    <thead>
+        <tr style="background: #eee;">
+            <th>Título</th>
+            <th>Descripción</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for tarea in tareas %}
+        <tr>
+            <td>{{ tarea.titulo }}</td>
+            <td>{{ tarea.descripcion }}</td>
+            <td><strong>{{ tarea.estado }}</strong></td>
+            <td>
+                <a href="{% url 'editar_tarea' tarea.id %}" style="color: blue;">Editar</a> | 
+                <a href="{% url 'eliminar_tarea' tarea.id %}" style="color: red;" onclick="return confirm('¿Eliminar esta tarea?')">Borrar</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">No hay tareas registradas.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+    
+</body>
+</html>
